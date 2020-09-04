@@ -39,7 +39,7 @@ namespace PubDev.Collections
         {
             var items = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
-            IEnumerable<int> enumerableItems = items;
+            var enumerableItems = items.Where(x => x > 0);
 
             using (var item = enumerableItems.GetEnumerator())
             {
@@ -54,7 +54,7 @@ namespace PubDev.Collections
         {
             var items = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
-            IEnumerable<int> enumerableItems = items;
+            var enumerableItems = items.Where(x => x > 0);
 
             foreach (var item in enumerableItems)
             {
@@ -208,7 +208,7 @@ namespace PubDev.Collections
         {
             var items = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
-            var numerosParesLista = items.Where(NumeroPar).ToList();
+            IList<int> numerosParesLista = items.Where(NumeroPar).ToList();
 
             if (numerosParesLista.Count > 5)
             {
