@@ -3,9 +3,9 @@ Projeto para demonstrar as diferenças entre as interfaces IEnumerable, ICollect
 
 References:
 
- - [IEnumerable )](https://docs.microsoft.com/en-us/dotnet/api/system.collections.ienumerable?view=netcore-3.1)
- - [ICollection )](https://docs.microsoft.com/en-us/dotnet/api/system.collections.icollection?view=netcore-3.1)
- - [IList )](https://docs.microsoft.com/en-us/dotnet/api/system.collections.ilist?view=netcore-3.1)
+ - [IEnumerable](https://docs.microsoft.com/en-us/dotnet/api/system.collections.ienumerable?view=netcore-3.1)
+ - [ICollection](https://docs.microsoft.com/en-us/dotnet/api/system.collections.icollection?view=netcore-3.1)
+ - [IList](https://docs.microsoft.com/en-us/dotnet/api/system.collections.ilist?view=netcore-3.1)
  
  Aproveite e se inscreva no nosso canal no youtube : [PubDev](https://www.youtube.com/c/PubDev)
  E nos siga no instagram : [pub_dev](https://www.instagram.com/pub_dev)
