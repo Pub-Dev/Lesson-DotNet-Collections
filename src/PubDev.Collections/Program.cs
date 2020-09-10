@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -12,20 +11,20 @@ namespace PubDev.Collections
         {
             Console.Title = "Pub Dev - Entedendo Coleções";
 
-            //Enumerable_SemForeach();
-            //Enumerable_ComForeach();
+            Enumerable_WithoutForeach();
+            Enumerable_WithForeach();
 
-            //Collection_Count();
-            //Collection_Add();
-            //Collection_Contains();
-            //Collection_CopyTo();
-            //Collection_Remove();
-            //Collection_Clear();
+            Collection_Count();
+            Collection_Add();
+            Collection_Contains();
+            Collection_CopyTo();
+            Collection_Remove();
+            Collection_Clear();
 
-            //List_Index();
-            //List_IndexOf();
-            //List_Insert();
-            //List_RemoveAt();
+            List_Index();
+            List_IndexOf();
+            List_Insert();
+            List_RemoveAt();
 
             Enumerable_vs_Collection_Count();
             Enumerable_vs_List();
@@ -41,12 +40,11 @@ namespace PubDev.Collections
 
             var enumerableItems = items.Where(x => x > 0);
 
-            using (var item = enumerableItems.GetEnumerator())
+            using var item = enumerableItems.GetEnumerator();
+
+            while (item.MoveNext())
             {
-                while (item.MoveNext())
-                {
-                    Console.WriteLine(item.Current);
-                }
+                Console.WriteLine(item.Current);
             }
         }
 
@@ -79,7 +77,7 @@ namespace PubDev.Collections
         {
             var items = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
-            ICollection<int> collectionItems = items;
+            ICollection<int> collectionItems = items.ToList();
 
             Console.WriteLine($"Total de Items {collectionItems.Count}");
 
@@ -105,14 +103,12 @@ namespace PubDev.Collections
 
             var collectionItemsCopy = new int[collectionItems.Count + 10];
 
-            collectionItems.CopyTo(collectionItemsCopy, 0);
-
-            Console.WriteLine($"collectionItems contem {collectionItems.Count} items");
+            collectionItems.CopyTo(collectionItemsCopy, 8);
         }
 
         private static void Collection_Remove()
         {
-            var items = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            var items = new List<int>() { 1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
             ICollection<int> collectionItems = items;
 
