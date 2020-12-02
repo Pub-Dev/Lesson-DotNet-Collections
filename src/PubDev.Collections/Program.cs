@@ -11,40 +11,37 @@ namespace PubDev.Collections
         {
             Console.Title = "Pub Dev - Entedendo Coleções";
 
-            Enumerable_WithoutForeach();
-            Enumerable_WithForeach();
+            //Enumerable_WithoutForeach();
+            //Enumerable_WithForeach();
+            Enumerable_PubDev();
 
-            Collection_Count();
-            Collection_Add();
-            Collection_Contains();
-            Collection_CopyTo();
-            Collection_Remove();
-            Collection_Clear();
+            //Collection_Count();
+            //Collection_Add();
+            //Collection_Contains();
+            //Collection_CopyTo();
+            //Collection_Remove();
+            //Collection_Clear();
 
-            List_Index();
-            List_IndexOf();
-            List_Insert();
-            List_RemoveAt();
+            //List_Index();
+            //List_IndexOf();
+            //List_Insert();
+            //List_RemoveAt();
 
-            Enumerable_vs_Collection_Count();
-            Enumerable_vs_List();
+            //Enumerable_vs_Collection_Count();
+            //Enumerable_vs_List();
 
             Console.ReadKey();
         }
 
         #region .: Enumerable :.
 
-        private static void Enumerable_WithoutForeach()
+        private static void Enumerable_PubDev()
         {
-            var items = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            var pudDevEnumerable = new PubDevEnumerable();
 
-            var enumerableItems = items.Where(x => x > 0);
-
-            using var item = enumerableItems.GetEnumerator();
-
-            while (item.MoveNext())
+            foreach (var item in pudDevEnumerable)
             {
-                Console.WriteLine(item.Current);
+                Console.WriteLine(item);
             }
         }
 
@@ -52,11 +49,23 @@ namespace PubDev.Collections
         {
             var items = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
-            var enumerableItems = items.Where(x => x > 0);
+            var enumerableItems = items.Where(x => x > 5);
 
             foreach (var item in enumerableItems)
             {
-                Console.WriteLine(item);
+                Console.Write(item);
+            }
+        }
+
+        private static void Enumerable_WithoutForeach()
+        {
+            var items = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+            var item = items.GetEnumerator();
+
+            while (item.MoveNext())
+            {
+                Console.WriteLine(item.Current);
             }
         }
 
@@ -234,6 +243,13 @@ namespace PubDev.Collections
             Console.WriteLine($"Verificando se o numero - {numero} é par");
 
             return numero % 2 == 0;
+        }
+
+        private static void IEnumerable_Processing()
+        {
+            var array = new int[] { 1, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+            array.Select(x => x * 10).Select(x => x * 15).Select(x => x);
         }
 
         #endregion .: Comparacoes :.
