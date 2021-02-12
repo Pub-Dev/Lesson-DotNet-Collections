@@ -13,7 +13,7 @@ namespace PubDev.Collections
 
             //Enumerable_WithoutForeach();
             //Enumerable_WithForeach();
-            Enumerable_PubDev();
+            //Enumerable_PubDev();
 
             //Collection_Count();
             //Collection_Add();
@@ -26,11 +26,10 @@ namespace PubDev.Collections
             //List_IndexOf();
             //List_Insert();
             //List_RemoveAt();
+            List_Capacity();
 
             //Enumerable_vs_Collection_Count();
             //Enumerable_vs_List();
-
-            Console.ReadKey();
         }
 
         #region .: Enumerable :.
@@ -108,7 +107,7 @@ namespace PubDev.Collections
         {
             var items = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
-            ICollection<int> collectionItems = items;
+            ICollection<int> collectionItems = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
             var collectionItemsCopy = new int[collectionItems.Count + 10];
 
@@ -236,6 +235,46 @@ namespace PubDev.Collections
             {
                 Console.WriteLine("List - Existem mais de 10 numeros pares");
             }
+        }
+
+        private static void Enumerable_is_Good()
+        {
+            var itens = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+            var pairNumbers = itens.Where(x => x % 2 == 0);
+
+            var firstPairNumber = pairNumbers.FirstOrDefault();
+
+            var firstPairNumberList = pairNumbers.ToList().FirstOrDefault();
+        }
+
+        private static void List_Capacity()
+        {
+            var items = new List<int>(10_000_000);
+
+            var itemsWithoutCapacity = new List<int>();
+
+            var stopWatch = new Stopwatch();
+
+            stopWatch.Start();
+
+            for (int i = 0; i < 10_000_000; i++)
+            {
+                items.Add(i);
+            }
+
+            Console.WriteLine($"list - capacity = {stopWatch.ElapsedMilliseconds}");
+
+            stopWatch.Restart();
+
+            for (int i = 0; i < 10_000_000; i++)
+            {
+                itemsWithoutCapacity.Add(i);
+            }
+
+            Console.WriteLine($"list - without capacity = {stopWatch.ElapsedMilliseconds}");
+
+            stopWatch.Stop();
         }
 
         private static bool NumeroPar(int numero)
